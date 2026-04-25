@@ -1,0 +1,10 @@
+# robots.txt for whalewatchingmirissa.com
+
+User-agent: *
+
+
+# Allow all other content
+Allow: /
+
+# Sitemap location
+Sitemap: https://whalewatchingmirissa.com/sitemap.xml
