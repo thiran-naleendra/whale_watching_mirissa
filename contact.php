@@ -3,46 +3,28 @@ require_once __DIR__ . "/config.php";
 
 $page_title = "Contact Whale Watching Mirissa (2026) | WhatsApp Booking & Support";
 $page_description = "Contact Whale Watching Mirissa for bookings and tour information. WhatsApp, phone, or email support. Daily departures around 7:00 AM from Mirissa Harbour (arrive 30 minutes early).";
-$page_canonical = canonical("contact.php");
-$page_og_image = "https://whalewatchingmirissa.com/assets/contact-hero.jpg";
-
-// Address lines (edit if needed)
-$ADDRESS_LINE_1 = "Mirissa Harbour";
-$ADDRESS_LINE_2 = "Mirissa, Sri Lanka";
+$page_canonical = canonical("contact");
+$page_og_image = canonical("images/logo.png");
+$page_og_image_alt = "Contact Whale Watching Mirissa for tour bookings";
+$breadcrumb_label = "Contact";
 
 // Local SEO schema (LocalBusiness)
 $json_ld = [
   "@context" => "https://schema.org",
-  "@type" => "LocalBusiness",
-  "name" => "Whale Watching Mirissa",
-  "url" => $SITE_URL,
-  "telephone" => $PHONE,
-  "email" => $EMAIL,
-  "address" => [
-    "@type" => "PostalAddress",
-    "streetAddress" => $ADDRESS_LINE_1,
-    "addressLocality" => "Mirissa",
-    "addressCountry" => "LK",
-  ],
-  "areaServed" => "Mirissa, Sri Lanka",
-  // Optional:
-  // "geo" => ["@type"=>"GeoCoordinates","latitude"=>5.947745,"longitude"=>80.451884],
-  "openingHoursSpecification" => [
-    [
-      "@type" => "OpeningHoursSpecification",
-      "dayOfWeek" => ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens" => "06:00",
-      "closes" => "20:00",
-    ],
+  "@type" => "ContactPage",
+  "name" => "Contact Whale Watching Mirissa",
+  "url" => $page_canonical,
+  "description" => $page_description,
+  "about" => [
+    "@id" => rtrim($SITE_URL, "/") . "/#localbusiness"
   ],
 ];
 
 $bring_items = [
-  
   "Comfortable clothing",
+  "Sun protection and sunglasses",
   "Camera or smartphone",
-  "Passport Photo",
-  
+  "Water and any seasickness medicine you need",
 ];
 
 $whatsapp_msg = "Hello! I'd like to inquire about whale watching tours in Mirissa.";
@@ -94,7 +76,7 @@ require_once __DIR__ . "/header.php";
 
             <!-- Phone -->
             <a
-              href="tel:<?= h(preg_replace('/\s+/', '', $PHONE)) ?>"
+              href="<?= h(phone_href()) ?>"
               class="w-full bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-xl md:rounded-2xl p-5 md:p-6 hover:bg-white/20 transition duration-300 flex items-center space-x-4 group text-left"
             >
               <div class="bg-white/20 rounded-lg md:rounded-xl p-3 group-hover:bg-white/30 transition flex-shrink-0">
@@ -184,7 +166,7 @@ require_once __DIR__ . "/header.php";
                   Best Season
                 </h3>
                 <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
-                    Tour Starts <strong>mid july to April</strong><br />
+                  Main season: <strong>mid-July to April</strong><br />
                   Calm Ocean: <strong>October to April</strong><br />
                   
                 </p>

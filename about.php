@@ -3,8 +3,10 @@ require_once __DIR__ . "/config.php";
 
 $page_title = "About Whale Watching Mirissa (2026) | Licensed & Ethical Boat Tours";
 $page_description = "Learn about Whale Watching Mirissa — a local, safety-focused and ethical whale watching operator in Mirissa, Sri Lanka. Experienced crew, responsible wildlife viewing, and easy booking.";
-$page_canonical = canonical("about.php");
-$page_og_image = "https://whalewatchingmirissa.com/assets/about-team-image.jpg";
+$page_canonical = canonical("about");
+$page_og_image = canonical("images/logo.png");
+$page_og_image_alt = "Whale Watching Mirissa local tour operator logo";
+$breadcrumb_label = "About";
 
 // Values (converted from React)
 $values = [
@@ -33,13 +35,13 @@ $values = [
 // JSON-LD (LocalBusiness)
 $json_ld = [
   "@context" => "https://schema.org",
-  "@type" => "LocalBusiness",
-  "name" => "Whale Watching Mirissa",
-  "url" => $SITE_URL,
-  "image" => $page_og_image,
-  "areaServed" => "Mirissa, Sri Lanka",
-  "description" => "Licensed whale watching tours in Mirissa, Sri Lanka. Ethical wildlife viewing, experienced local crew, and safety-focused boat tours.",
-  "sameAs" => [],
+  "@type" => "AboutPage",
+  "name" => "About Whale Watching Mirissa",
+  "url" => $page_canonical,
+  "description" => $page_description,
+  "about" => [
+    "@id" => rtrim($SITE_URL, "/") . "/#localbusiness"
+  ],
 ];
 
 require_once __DIR__ . "/header.php";
@@ -95,10 +97,12 @@ require_once __DIR__ . "/header.php";
       <div class="relative order-first lg:order-last">
         <div class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1569670380685-4582bf29a24a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
+            src="images/islandbreezeboat.webp"
             alt="Whale watching boat in Mirissa Sri Lanka"
             class="w-full h-full object-cover"
             loading="lazy"
+            width="760"
+            height="520"
           />
         </div>
 

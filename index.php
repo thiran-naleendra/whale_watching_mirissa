@@ -5,6 +5,7 @@ $page_title = "Best Whale Watching Mirissa Sri Lanka | Private & Shared Tours 20
 $page_description = "Book the best whale watching in Mirissa, Sri Lanka. Daily tours from Mirissa Harbour with licensed boats, safety equipment, breakfast on shared tours, and instant WhatsApp booking.";
 $page_canonical = canonical("");
 $page_og_image = canonical("images/w6.jpg");
+$page_og_image_alt = "Whale watching tour in Mirissa, Sri Lanka";
 
 // FAQ data
 $faqs = [
@@ -45,6 +46,9 @@ $json_ld = [
     "name" => "Whale Watching Mirissa",
     "description" => "Private and shared whale watching tours from Mirissa Harbour, Sri Lanka.",
     "touristType" => ["Couples", "Families", "Groups", "Wildlife Travelers"],
+    "provider" => [
+      "@id" => rtrim($SITE_URL, "/") . "/#localbusiness",
+    ],
     "itinerary" => [
       [
         "@type" => "Place",
@@ -77,14 +81,17 @@ require_once __DIR__ . "/header.php";
 <section
   class="relative min-h-[82vh] sm:min-h-[75vh] md:min-h-[600px] flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28"
   data-hero
-  data-images="https://images.pexels.com/photos/4666753/pexels-photo-4666753.jpeg|https://images.pexels.com/photos/3635870/pexels-photo-3635870.jpeg|https://images.pexels.com/photos/14019368/pexels-photo-14019368.jpeg">
+  data-images="images/w6.webp|images/w9.webp|images/w4.webp">
   <div class="absolute inset-0 w-full h-full">
     <img
       id="hero-img"
-      src="images/w6.jpg"
+      src="images/w6.webp"
       alt="Best whale watching in Mirissa Sri Lanka with blue whales and dolphins"
       class="w-full h-full object-cover"
-      loading="eager" />
+      loading="eager"
+      fetchpriority="high"
+      width="1600"
+      height="900" />
     <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/70"></div>
   </div>
 
@@ -112,7 +119,7 @@ require_once __DIR__ . "/header.php";
         </a>
 
         <a
-          href="services.php"
+          href="<?= h(site_href("services")) ?>"
           class="w-full sm:w-auto bg-white/10 text-white border border-white/30 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/20 transition duration-300 inline-flex items-center justify-center">
           View Options
         </a>
@@ -167,9 +174,10 @@ require_once __DIR__ . "/header.php";
         </p>
 
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="services.php" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50">View Whale Watching Options</a>
-          <a href="gallery.php" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50">See Photos & Sightings</a>
-          <a href="tours.php" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50">Explore Sri Lanka Tours</a>
+          <a href="<?= h(site_href("services")) ?>" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50">View Whale Watching Options</a>
+          <a href="<?= h(site_href("whale-watching-mirissa-guide")) ?>" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50">Read Planning Guide</a>
+          <a href="<?= h(site_href("gallery")) ?>" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50">See Photos & Sightings</a>
+          <a href="<?= h(site_href("tours")) ?>" class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50">Explore Sri Lanka Tours</a>
         </div>
       </div>
 
@@ -217,19 +225,19 @@ require_once __DIR__ . "/header.php";
     $tours = [
       [
         "title" => "Shared Big Boat",
-        "img" => "images/islandbreezeboat.jpg",
+        "img" => "images/islandbreezeboat.webp",
         "alt" => "Shared big boat whale watching tour from Mirissa Harbour Sri Lanka",
         "desc" => "Join a shared whale watching tour from Mirissa Harbour with a comfortable double-deck boat. Ideal for budget-friendly trips and includes breakfast onboard."
       ],
       [
         "title" => "Private Speed Boat",
-        "img" => "images/speedboatmirissa.jpg",
+        "img" => "images/speedboatmirissa.webp",
         "alt" => "Private speed boat whale watching tour in Mirissa Sri Lanka",
         "desc" => "Book a private speed boat for a faster and more flexible whale watching trip from Mirissa. Suitable for small groups and couples."
       ],
       [
         "title" => "Private Big Boat",
-        "img" => "images/pvtboat.jpg",
+        "img" => "images/pvtboat.webp",
         "alt" => "Private big boat whale watching tour for groups in Mirissa Sri Lanka",
         "desc" => "A great option for families and private groups. Enjoy extra space, comfort, and facilities during your whale watching experience."
       ],
@@ -244,7 +252,7 @@ require_once __DIR__ . "/header.php";
     ?>
       <div class="group bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden flex flex-col">
         <div class="relative h-48 md:h-64 overflow-hidden">
-          <img src="<?= h($t["img"]) ?>" alt="<?= h($t["alt"]) ?>" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" />
+          <img src="<?= h($t["img"]) ?>" alt="<?= h($t["alt"]) ?>" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" width="640" height="420" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6">
             <h3 class="text-lg md:text-2xl font-bold text-white"><?= h($t["title"]) ?></h3>
@@ -281,10 +289,12 @@ require_once __DIR__ . "/header.php";
 
       <div class="relative w-full h-72 sm:h-80 md:h-96 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl group">
         <img
-          src="images/junglecatsmirissa.jpg"
+          src="images/junglecatsmirissa.webp"
           alt="Mirissa Sri Lanka nearby places to relax after whale watching"
           class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-          loading="lazy" />
+          loading="lazy"
+          width="760"
+          height="520" />
       </div>
     </div>
   </section>
@@ -329,6 +339,36 @@ require_once __DIR__ . "/header.php";
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector("[data-hero]");
+  const heroImg = document.getElementById("hero-img");
+  const heroDots = document.querySelectorAll("[data-hero-dot]");
+
+  if (hero && heroImg && heroDots.length) {
+    const heroImages = (hero.getAttribute("data-images") || "")
+      .split("|")
+      .filter(Boolean);
+    let activeHeroImage = 0;
+
+    const showHeroImage = (index) => {
+      if (!heroImages[index]) return;
+      activeHeroImage = index;
+      heroImg.src = heroImages[index];
+      heroDots.forEach((dot, dotIndex) => {
+        dot.className = dotIndex === index
+          ? "transition-all rounded-full bg-white w-8 h-2"
+          : "transition-all rounded-full bg-white/50 w-2 h-2";
+      });
+    };
+
+    heroDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => showHeroImage(index));
+    });
+
+    window.setInterval(() => {
+      showHeroImage((activeHeroImage + 1) % heroImages.length);
+    }, 6000);
+  }
+
   const buttons = document.querySelectorAll("[data-faq-btn]");
 
   buttons.forEach((btn) => {

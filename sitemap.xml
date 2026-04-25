@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://whalewatchingmirissa.com/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
-    <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://whalewatchingmirissa.com/index.php</loc>
-    <priority>0.90</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://whalewatchingmirissa.com/services.php</loc>
-    <priority>0.80</priority>
+    <loc>https://whalewatchingmirissa.com/services</loc>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://whalewatchingmirissa.com/tours.php</loc>
-    <priority>0.80</priority>
+    <loc>https://whalewatchingmirissa.com/whale-watching-mirissa-guide</loc>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://whalewatchingmirissa.com/activities.php</loc>
+    <loc>https://whalewatchingmirissa.com/tours</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://whalewatchingmirissa.com/activities</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.75</priority>
-    <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://whalewatchingmirissa.com/gallery.php</loc>
+    <loc>https://whalewatchingmirissa.com/gallery</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.70</priority>
-    <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://whalewatchingmirissa.com/about.php</loc>
-    <priority>0.60</priority>
+    <loc>https://whalewatchingmirissa.com/about</loc>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
   </url>
 
   <url>
-    <loc>https://whalewatchingmirissa.com/contact.php</loc>
-    <priority>0.60</priority>
+    <loc>https://whalewatchingmirissa.com/contact</loc>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
   </url>
 </urlset>

@@ -3,48 +3,50 @@ require_once __DIR__ . "/config.php";
 
 $page_title = "Whale Watching Mirissa Photos (2026) | Real Whale & Dolphin Sightings";
 $page_description = "Explore real photos from whale watching tours in Mirissa, Sri Lanka. See blue whales, dolphins, and unforgettable ocean moments captured on our daily tours.";
-$page_canonical = canonical("gallery.php");
-$page_og_image = "https://whalewatchingmirissa.com/assets/gallery-featured-image.jpg";
+$page_canonical = canonical("gallery");
+$page_og_image = canonical("images/w6.jpg");
+$page_og_image_alt = "Whale and dolphin sightings from Mirissa whale watching tours";
+$breadcrumb_label = "Photo Gallery";
 
 // Images (converted from React)
 $images = [
   [
-    "url" => "images/w2.jpg",
+    "url" => "images/w2.webp",
     "title" => "Blue Whale Nostril",
     "category" => "Whales",
   ],
   [
-    "url" => "images/w3.jpg",
+    "url" => "images/w3.webp",
     "title" => "Blue Whale Spout Mirissa Sri Lanka",
     "category" => "Whales",
   ],
   [
-    "url" => "images/w4.jpg",
+    "url" => "images/w4.webp",
     "title" => "Spinner Dolphins in Mirissa",
     "category" => "Dolphins",
   ],
   [
-    "url" => "images/w5.jpg",
+    "url" => "images/w5.webp",
     "title" => "Blue Whale Mottled Grey Skin",
     "category" => "Whales",
   ],
   [
-    "url" => "images/w6.jpg",
+    "url" => "images/w6.webp",
     "title" => "Pilot Whales Swimming Together",
     "category" => "Whales",
   ],
   [
-    "url" => "images/w7.jpg",
+    "url" => "images/w7.webp",
     "title" => "Blue Whale Head Close View",
     "category" => "Whales",
   ],
   [
-    "url" => "images/w8.jpg",
+    "url" => "images/w8.webp",
     "title" => "Killer Whale (Orca) at Sea",
     "category" => "Whales",
   ],
   [
-    "url" => "images/w9.jpg",
+    "url" => "images/w9.webp",
     "title" => "Blue Whale Surfacing in Indian Ocean",
     "category" => "Whales",
   ],
@@ -55,8 +57,8 @@ $json_ld = [
   "@context" => "https://schema.org",
   "@type" => "ImageGallery",
   "name" => "Whale Watching Mirissa Photo Gallery",
-  "url"  => canonical("gallery.php"),
-  "image" => array_map(function($img){ return $img["url"]; }, $images),
+  "url"  => $page_canonical,
+  "image" => array_map(function($img){ return canonical($img["url"]); }, $images),
   "about" => [
     "@type" => "TouristAttraction",
     "name" => "Whale Watching Mirissa",
@@ -105,6 +107,8 @@ require_once __DIR__ . "/header.php";
             alt="<?= h($image["title"]) ?> – Whale Watching Mirissa Sri Lanka"
             loading="lazy"
             class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+            width="640"
+            height="420"
           />
 
           <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300">

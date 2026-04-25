@@ -3,22 +3,30 @@ require_once __DIR__ . "/config.php";
 
 $page_title = "Whale Watching Services in Mirissa (2026) | Shared & Private Boat Tours";
 $page_description = "Compare whale watching services in Mirissa: shared boat tours, private speed boat trips, and private charters. Licensed local crew, daily departures, and easy booking for 2026 season.";
-$page_canonical = canonical("services.php");
-$page_og_image = "https://whalewatchingmirissa.com/assets/whale-watching-mirissa-og.jpg";
+$page_canonical = canonical("services");
+$page_og_image = canonical("images/islandbreezeboat.jpg");
+$page_og_image_alt = "Shared whale watching boat in Mirissa Harbour";
+$breadcrumb_label = "Whale Watching Services";
 
 $json_ld = [
   "@context" => "https://schema.org",
   "@type" => "Service",
   "name" => "Whale Watching Services in Mirissa",
-  "provider" => [
-    "@type" => "LocalBusiness",
-    "name" => "Whale Watching Mirissa",
-    "url" => "https://whalewatchingmirissa.com",
-    "areaServed" => "Mirissa, Sri Lanka"
-  ],
   "areaServed" => "Mirissa, Sri Lanka",
   "serviceType" => "Whale watching tours",
-  "url" => "https://whalewatchingmirissa.com/services"
+  "provider" => [
+    "@id" => rtrim($SITE_URL, "/") . "/#localbusiness"
+  ],
+  "hasOfferCatalog" => [
+    "@type" => "OfferCatalog",
+    "name" => "Whale Watching Tour Options",
+    "itemListElement" => [
+      ["@type" => "Offer", "name" => "Shared Whale Watching Tour"],
+      ["@type" => "Offer", "name" => "Private Speed Boat Experience"],
+      ["@type" => "Offer", "name" => "Private Charter Tour"]
+    ]
+  ],
+  "url" => $page_canonical
 ];
 
 require_once __DIR__ . "/header.php";
@@ -26,14 +34,14 @@ require_once __DIR__ . "/header.php";
 
 <div class="min-h-screen bg-white">
   <section class="relative h-[60vh] md:h-[65vh] flex items-center justify-center text-center bg-cover bg-center pt-28 md:pt-32"
-           style="background-image:url('https://images.unsplash.com/photo-1585880902425-7ef6e1b0f87b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0');">
+           style="background-image:url('images/islandbreezeboat.webp');">
     <div class="absolute inset-0 bg-black/55"></div>
     <div class="relative z-10 max-w-4xl px-4">
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-5">Whale Watching Services in Mirissa</h1>
       <p class="text-base sm:text-lg md:text-xl text-blue-50 mb-6 leading-relaxed">
         Updated for the <strong>2026 whale season</strong>. Compare shared tours, private speed boats, and private charters — all departing from <strong>Mirissa Harbour</strong>.
       </p>
-      <a href="https://booking.whalewatchingmirissa.com" target="_blank" rel="noopener noreferrer"
+      <a href="<?= h($BOOKING_URL) ?>" target="_blank" rel="noopener noreferrer"
          class="bg-blue-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-flex items-center space-x-2 text-sm md:text-lg">
         Book Now
       </a>
@@ -68,7 +76,7 @@ require_once __DIR__ . "/header.php";
             <li class="flex items-start text-sm md:text-base"><span class="text-teal-500 mr-3 mt-0.5">✔</span><span>Experienced captain & crew</span></li>
             <li class="flex items-start text-sm md:text-base"><span class="text-teal-500 mr-3 mt-0.5">✔</span><span>Safety equipment provided</span></li>
           </ul>
-          <a href="https://booking.whalewatchingmirissa.com" target="_blank" rel="noopener noreferrer"
+          <a href="<?= h($BOOKING_URL) ?>" target="_blank" rel="noopener noreferrer"
              class="w-full text-center bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 rounded-full font-semibold hover:from-blue-700 hover:to-teal-600 transition duration-300">
             Reserve Now
           </a>
@@ -132,7 +140,7 @@ require_once __DIR__ . "/header.php";
           <p class="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
             Peak season often offers the highest chance of sightings. Arrive early, bring sun protection, and keep your camera ready. Book ahead for best availability.
           </p>
-          <a href="https://booking.whalewatchingmirissa.com" target="_blank" rel="noopener noreferrer"
+          <a href="<?= h($BOOKING_URL) ?>" target="_blank" rel="noopener noreferrer"
              class="bg-blue-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-flex items-center space-x-2 text-sm md:text-base">
             Check Availability
           </a>

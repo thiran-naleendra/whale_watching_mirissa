@@ -2,9 +2,10 @@
 
 User-agent: *
 
-
 # Allow all other content
 Allow: /
+Disallow: /.git/
+Disallow: /error_log
 
 # Sitemap location
 Sitemap: https://whalewatchingmirissa.com/sitemap.xml

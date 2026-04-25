@@ -3,8 +3,10 @@ require_once __DIR__ . "/config.php";
 
 $page_title = "Mirissa Activities & Water Sports (2026) | Surfing, Diving, Jet Ski & More";
 $page_description = "Discover the best things to do in Mirissa: surfing lessons, snorkeling & diving, jet skiing, sailing, deep sea fishing, and rafting day trips. Easy WhatsApp booking.";
-$page_canonical = canonical("activities.php");
-$page_og_image = "https://whalewatchingmirissa.com/assets/activities-hero.jpg";
+$page_canonical = canonical("activities");
+$page_og_image = canonical("images/speedboatmirissa.jpg");
+$page_og_image_alt = "Mirissa water sports and ocean activities";
+$breadcrumb_label = "Activities";
 
 // Activities data (converted from React)
 $activities = [
@@ -87,7 +89,7 @@ $json_ld = [
   "@context" => "https://schema.org",
   "@type" => "CollectionPage",
   "name" => "Mirissa Activities & Water Sports",
-  "url"  => canonical("activities.php"),
+  "url"  => $page_canonical,
   "isPartOf" => [
     "@type" => "WebSite",
     "name" => "Whale Watching Mirissa",
@@ -108,7 +110,7 @@ require_once __DIR__ . "/header.php";
   <!-- Hero -->
   <section
     class="relative h-[70vh] md:h-[80vh] flex items-center justify-center text-center bg-cover bg-center"
-    style="background-image:url('https://images.unsplash.com/photo-1752498226651-ca666568d9a2?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0');"
+    style="background-image:url('images/speedboatmirissa.webp');"
   >
     <div class="absolute inset-0 bg-black/55"></div>
 

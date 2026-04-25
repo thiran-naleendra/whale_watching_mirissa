@@ -3,8 +3,10 @@ require_once __DIR__ . "/config.php";
 
 $page_title = "Sri Lanka Tours from Mirissa (2026) | Safari, Sigiriya, Kandy & Beaches";
 $page_description = "Explore Sri Lanka with day tours and custom itineraries from Mirissa: Yala safari, Sigiriya, Kandy cultural tours, and beach escapes. Message us on WhatsApp to plan your trip.";
-$page_canonical = canonical("tours.php");
-$page_og_image = "https://whalewatchingmirissa.com/assets/sri-lanka-tours-hero.jpg";
+$page_canonical = canonical("tours");
+$page_og_image = canonical("images/junglecatsmirissa.jpg");
+$page_og_image_alt = "Sri Lanka wildlife and cultural tours from Mirissa";
+$breadcrumb_label = "Sri Lanka Tours";
 
 // Tours data (converted from React)
 $tours = [
@@ -63,7 +65,7 @@ $json_ld = [
   "@context" => "https://schema.org",
   "@type" => "CollectionPage",
   "name" => "Sri Lanka Tours from Mirissa",
-  "url"  => canonical("tours.php"),
+  "url"  => $page_canonical,
   "isPartOf" => [
     "@type" => "WebSite",
     "name" => "Whale Watching Mirissa",
@@ -83,7 +85,7 @@ require_once __DIR__ . "/header.php";
   <!-- Hero -->
   <section
     class="relative h-[75vh] md:h-[85vh] flex items-center justify-center text-center bg-cover bg-center"
-    style="background-image:url('https://images.unsplash.com/photo-1753442361369-e2079446a2b7?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0');"
+    style="background-image:url('images/junglecatsmirissa.webp');"
   >
     <div class="absolute inset-0 bg-black/55"></div>
 
